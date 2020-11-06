@@ -1,0 +1,66 @@
+.game-board {
+  @include box(100vw, 100vh);
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  &__player {
+    background-color: $light-accent-color;
+    border-radius: 10px;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+    padding: 5px 15px;
+
+    strong {
+      color: $dark-text-color;
+    }
+  }
+
+  &__btn-new-game {
+    background-color: #b0d9ba;
+    border-radius: 10px;
+    color: $primary-color;
+    cursor: pointer;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding: 4px 10px;
+  }
+
+  &__grid {
+    background-color: $secondary-color;
+    display: grid;
+    gap: 1px;
+    grid-auto-rows: 100px;
+    grid-template-columns: repeat(3, 100px);
+    justify-content: center;
+  }
+
+  &__square {
+    @include square(100%);
+    background-color: $primary-color;
+    color: $secondary-color;
+    cursor: pointer;
+    font-size: 2em;
+    font-weight: 600;
+    overflow: hidden;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+
+    &:hover {
+      background-color: lighten($primary-color, 5%);
+    }
+  }
+
+  &__disable {
+    background-color: #ececec;
+    color: #939dad;
+    pointer-events: none;
+  }
+
+  &__win {
+    background-color: $primary-color;
+    color: $secondary-color;
+  }
+}

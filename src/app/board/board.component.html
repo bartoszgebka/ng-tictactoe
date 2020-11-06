@@ -1,0 +1,32 @@
+<div class="game-board">
+  <h1 class="game-board__player">
+    <ng-content *ngIf="!winner; then currentTpl; else winnerTpl"></ng-content>
+  </h1>
+
+  <ng-template #currentTpl>
+    Current player: <strong>{{ currentPlayer }}</strong>
+  </ng-template>
+  <ng-template #winnerTpl>
+    Winner: <strong>{{ winner }}</strong>
+  </ng-template>
+
+  <ng-container *ngIf="isEndGame()">
+    <button class="game-board__btn-new-game" (click)="createNewGame()">
+      New game
+    </button>
+  </ng-container>
+
+  <div class="game-board__grid">
+    <button
+      *ngFor="let square of squares; let i = index"
+      [ngClass]="{
+        'game-board__square': true,
+        'game-board__disable': isEndGame(),
+        'game-board__win': square.isWin
+      }"
+      (click)="clickSquare(i)"
+    >
+      {{ square.value }}
+    </button>
+  </div>
+</div>
