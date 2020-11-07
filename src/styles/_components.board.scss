@@ -51,16 +51,16 @@
     &:hover {
       background-color: lighten($primary-color, 5%);
     }
-  }
 
-  &__disable {
-    background-color: #ececec;
-    color: #939dad;
-    pointer-events: none;
-  }
+    &--disable {
+      background-color: #ececec;
+      color: #939dad;
+      pointer-events: none;
+    }
 
-  &__win {
-    background-color: $primary-color;
-    color: $secondary-color;
+    &--win {
+      background-color: $primary-color;
+      color: $secondary-color;
+    }
   }
 }

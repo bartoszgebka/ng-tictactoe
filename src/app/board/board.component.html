@@ -21,8 +21,8 @@
       *ngFor="let square of squares; let i = index"
       [ngClass]="{
         'game-board__square': true,
-        'game-board__disable': isEndGame(),
-        'game-board__win': square.isWin
+        'game-board__square--disable': isEndGame(),
+        'game-board__square--win': square.isWin
       }"
       (click)="clickSquare(i)"
     >
